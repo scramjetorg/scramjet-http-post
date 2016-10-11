@@ -1,0 +1,11 @@
+{
+  "name": "scramjet-http-post",
+  "version": "0.9.0",
+  "description": "A simple stateless http server that emits all posted objects as a stream",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "GPL-3.0"
+}
