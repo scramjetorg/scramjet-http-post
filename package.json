@@ -1,6 +1,6 @@
 {
   "name": "scramjet-http-post",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "A simple stateless http server that emits all posted objects as a stream",
   "main": "index.js",
   "scripts": {
