@@ -28,9 +28,9 @@ module.exports.body = makeServer.bind(null, (stream) => (req, res) => {
 	if (req.method === 'OPTIONS') {
 		res.writeHead(200);
 		return res.end();
-	} else if (request.method !== 'POST') {
-        request.writeHead();
-        return request.end();
+	} else if (req.method !== 'POST') {
+        res.writeHead(409, "Method not supported");
+        return res.end();
     }
 
     const body = [];
@@ -38,10 +38,10 @@ module.exports.body = makeServer.bind(null, (stream) => (req, res) => {
     req.on("error", (...args) => debug(...args));
     req.on("end", () => {
         try {
-            const type = ("" + request.headers["content-type"]).split(/\//);
-            const data = Buffer.concat(data).toString();
+            const type = ("" + req.headers["content-type"]).split(/\//);
+            const data = Buffer.concat(body).toString();
             let entity;
-            switch("" + request.headers["content-type"]) {
+            switch("" + req.headers["content-type"]) {
                 case "application/json":
                 case "text/json":
                     entity = JSON.parse(data);
@@ -61,6 +61,7 @@ module.exports.body = makeServer.bind(null, (stream) => (req, res) => {
             res.end();
         } catch(e) {
             res.writeHead(422, "Unprocessable Entity");
+            this.debug(e && e.stack);
             return res.end();
         }
     });
