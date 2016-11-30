@@ -10,8 +10,8 @@
     "node": ">=6"
   },
   "author": "",
-  "license": "GPL-3.0",
-  "devDependencies": {
-    "scramjet": "~1"
+  "license": "MIT",
+  "dependencies": {
+    "scramjet": ">=1.5"
   }
 }
