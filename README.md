@@ -21,4 +21,4 @@ Grabs votes off a http server and pushes to command line.
 
 ## License and contributions
 
-At this moment Scramjet is released under the terms of the MIT License.
+As of version 2.0 Scramjet is MIT Licensed and so is this module.

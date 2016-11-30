@@ -6,12 +6,17 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "homepage": "https://michalcz.github.io/scramjet/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MichalCz/scramjet-http-post.git"
+  },
   "engines": {
     "node": ">=6"
   },
-  "author": "",
+  "author": "Signicode / Michał Czapracki <cz@signicode.com>",
   "license": "MIT",
   "dependencies": {
-    "scramjet": ">=1.5"
+    "scramjet": ">=2"
   }
 }
