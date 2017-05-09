@@ -11,6 +11,10 @@ const getScramjetVersion = (scramjet) => {
 };
 
 const makeServer = (callback, scramjet, server) => {
+    if (scramjet instanceof http.Server) {
+        [scramjet, server] = [require("scramjet"), scramjet];
+    }
+
     var stream = new (getScramjetVersion(scramjet).DataStream)();
     server.on("request", callback(stream));
     return stream;
@@ -47,6 +51,7 @@ module.exports.body = makeServer.bind(null, (stream) => (req, res) => {
                     entity = JSON.parse(data);
                     break;
                 case "application/form-data":
+                case "application/x-www-form-urlencoded":
                     entity = querystring.parse(data);
                     break;
                 default:

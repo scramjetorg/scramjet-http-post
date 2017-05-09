@@ -4,7 +4,7 @@
   "description": "A simple stateless http server that emits all posted objects as a stream",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/nodeunit test/simple.js"
   },
   "homepage": "https://michalcz.github.io/scramjet/",
   "repository": {
@@ -18,5 +18,10 @@
   "license": "MIT",
   "dependencies": {
     "scramjet": ">=2"
+  },
+  "devDependencies": {
+    "nodeunit": "^0.11.0",
+    "request": "^2.81.0",
+    "request-promise-native": "^1.0.4"
   }
 }
