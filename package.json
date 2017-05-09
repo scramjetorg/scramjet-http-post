@@ -6,10 +6,10 @@
   "scripts": {
     "test": "./node_modules/.bin/nodeunit test/simple.js"
   },
-  "homepage": "https://michalcz.github.io/scramjet/",
+  "homepage": "https://signicode.github.io/scramjet/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/MichalCz/scramjet-http-post.git"
+    "url": "https://github.com/signicode/scramjet-http-post.git"
   },
   "engines": {
     "node": ">=6"
