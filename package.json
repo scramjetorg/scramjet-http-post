@@ -12,7 +12,7 @@
     "url": "https://github.com/signicode/scramjet-http-post.git"
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=8"
   },
   "author": "Signicode / Michał Czapracki <cz@signicode.com>",
   "license": "MIT",
