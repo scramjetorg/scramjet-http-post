@@ -1,6 +1,8 @@
 Scramjet HTTP POST
 -------------------
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/signicode/scramjet-http-post.svg)](https://greenkeeper.io/)
+
 A simple HTTP server providing a stream of HTTP POST payloads in scramjet.
 
 
