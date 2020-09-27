@@ -1,13 +1,15 @@
-const request = require("request-promise-native");
+const fetch = require("node-fetch");
+const { URLSearchParams } = require('url');
 const scHTTP = require("../");
 
 module.exports = {
-    test_simple(test) {
+    async test_simple(test) {
 
         test.expect(1);
 
         const server = require("http").createServer();
-        const stream = scHTTP.body(server)
+
+        scHTTP.body(server)
             .filter((data) => (data && typeof data === "object" && !isNaN(+data.vote) && typeof data.for === "string"))
             .map((data) => ({
                 contestant: data.for.substr(0, 1).toUpperCase(),
@@ -24,16 +26,23 @@ module.exports = {
             );
 
         server.listen(27180);
-
-        request({
-            method: "POST",
-            uri: "http://localhost:27180/",
-            form: {
-                for: "Xavier",
-                vote: 160
-            }
-        }).catch(
-            (e) => test.ok(0, "The server should respond correctly")
-        );
+        server.on("listening", () => {
+            console.log("Server listening");
+            fetch("http://localhost:27180/", {
+                method: "POST",
+                body: new URLSearchParams({
+                    for: "Xavier",
+                    vote: 160
+                })
+            })
+            .then(
+                r => {
+                    console.log(r)
+                }
+            )
+            .catch(
+                (e) => test.ok(0, "The server should respond correctly")
+            );
+        })
     }
 };

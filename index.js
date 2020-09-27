@@ -1,6 +1,5 @@
 const http = require("http");
 const querystring = require("querystring");
-const EventEmitter = require("events").EventEmitter;
 const API_VERSION = 1;
 
 const getScramjetVersion = (scramjet) => {
@@ -42,10 +41,10 @@ module.exports.body = makeServer.bind(null, (stream) => (req, res) => {
     req.on("error", (...args) => debug(...args));
     req.on("end", () => {
         try {
-            const type = ("" + req.headers["content-type"]).split(/\//);
-            const data = Buffer.concat(body).toString();
+            const type = ("" + req.headers["content-type"]).split(";");
+            const data = Buffer.concat(body).toString("UTF-8");
             let entity;
-            switch("" + req.headers["content-type"]) {
+            switch(type[0]) {
                 case "application/json":
                 case "text/json":
                     entity = JSON.parse(data);
@@ -55,7 +54,7 @@ module.exports.body = makeServer.bind(null, (stream) => (req, res) => {
                     entity = querystring.parse(data);
                     break;
                 default:
-                    res.writeHead(415, "Unsupported Media Type");
+                    res.writeHead(415, `Unsupported Media Type - "${req.headers["content-type"]}"`);
                     return res.end();
             }
 
