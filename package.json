@@ -6,15 +6,15 @@
   "scripts": {
     "test": "./node_modules/.bin/nodeunit test/simple.js"
   },
-  "homepage": "https://signicode.github.io/scramjet/",
+  "homepage": "https://scramjet.org/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/signicode/scramjet-http-post.git"
+    "url": "https://github.com/scramjetorg/scramjet-http-post.git"
   },
   "engines": {
     "node": ">=8"
   },
-  "author": "Signicode / Michał Czapracki <cz@signicode.com>",
+  "author": "Scramjet / Michał Czapracki <open-source@scramjet.org>",
   "license": "MIT",
   "dependencies": {
     "scramjet": "^4.35.12"
