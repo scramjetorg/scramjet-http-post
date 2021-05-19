@@ -17,11 +17,11 @@
   "author": "Scramjet / Michał Czapracki <open-source@scramjet.org>",
   "license": "MIT",
   "dependencies": {
-    "scramjet": "^4.35.16"
+    "scramjet": "^4.35.17"
   },
   "devDependencies": {
-    "@types/node": "^15.0.1",
+    "@types/node": "^15.3.0",
     "node-fetch": "^2.6.1",
-    "nodeunit-tape-compat": "^1.3.75"
+    "nodeunit-tape-compat": "^1.3.77"
   }
 }
